@@ -4,7 +4,9 @@ public class student
      float height;
      double weight;
      String id;
+     String name;
      boolean is_tall;
+
      // behaviours ("methods")
     void takeclassesregularly()
     {
@@ -14,6 +16,14 @@ public class student
     double addtwoNumbers(double x,double y)
     {
         return x+y;
+    }
+
+    public static void main(String[] args) // main method always the same in Java
+    {
+        student alex = new student(); // create an object
+        alex.name = "Alex Sharma";
+        student aqil = new student();
+        System.out.println(alex.name +" "+ aqil.name); // shows where object is stored in memory, JVM allocates the memory to object
     }
 }
 
