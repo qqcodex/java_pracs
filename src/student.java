@@ -20,9 +20,10 @@ public class student
 
     public static void main(String[] args) // main method always the same in Java
     {
-        student alex = new student(); // create an object
+        student alex = new student(); // instantiation
         alex.name = "Alex Sharma";
         student aqil = new student();
+        aqil.name = "Aqil Alias";
         System.out.println(alex.name +" "+ aqil.name); // shows where object is stored in memory, JVM allocates the memory to object
     }
 }
