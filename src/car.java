@@ -9,6 +9,7 @@ public class car
     int year;
     int milesDriven;
     int gallonsUsed;
+    boolean isElectric;
 
     // behaviours ("methods")
     int calculateMPG(int milesDriven, int gallonsUsed)
@@ -16,25 +17,55 @@ public class car
         return milesDriven / gallonsUsed;
     }
 
-    void displayOwner(String ownerName){
+    void displayYearReleased(String ownerName){
 
-        System.out.println("Owner:"+" "+ownerName);
+        System.out.println("Model released on:"+" "+year);
     }
 
+    // default constructor
+    public car ()
+    {}
+    // parameterized constructor: >= states in a class
+    public car (String color)
+    {
+        this.color = color;
+    }
 
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in); // ask input from user thru CLI
-        String A = sc.nextLine();
         car myCar = new car(); // JVM create the object
-        myCar.color = "red";
+        /* myCar.color = "red";
         myCar.model = "camry";
-        myCar.year = 2022;
 
-        // car myCar2 = new car("blue","camry",2020); both
+        System.out.print("Enter owner name: ");
+        myCar.ownerName = sc.nextLine();
 
-        System.out.println(A+" "+myCar.color);
+        System.out.print("Enter car year: ");
+        myCar.year = sc.nextInt();
+
+        System.out.print("Enter miles driven: ");
+        myCar.milesDriven = sc.nextInt();
+
+        System.out.print("Enter gallons used: ");
+        myCar.gallonsUsed = sc.nextInt(); //will leave null/char
+
+        sc.nextLine(); // without this line, sc.NextBoolean() will consume the leftover from the previous sc.nextInt()
+        System.out.print("IS the car electric? (true/false): ");
+        myCar.isElectric = sc.nextBoolean();
+
+        System.out.println("The"+" "+myCar.color+" "+myCar.model+" "+"is owned by "+myCar.ownerName);
         System.out.println(myCar.calculateMPG(180, 20));
-        myCar.displayOwner("Sam");
+        myCar.displayYearReleased("Sam"); */
+        car thisCar = new car("Blue"); //new instance
+        System.out.println(thisCar); //if u print object, it will give memory location
+        System.out.println(thisCar.color);
+        car thatCar = new car("Silver");
+        System.out.println(thatCar.color);
+
+        /* public car (String color)
+        {
+            this.color = color;
+        } */
     }
 }
