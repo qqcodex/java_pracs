@@ -1,5 +1,19 @@
 import java.util.Scanner;
 
+class fd //same file
+{
+    String foodName;
+    String drinkName;
+
+    fd () {}
+    fd (String foodName, String drinkName)
+    {
+        this.foodName = foodName;
+        this.drinkName = drinkName;
+    }
+}
+
+
 public class restaurant
 {
     // states
@@ -13,12 +27,20 @@ public class restaurant
     boolean isDiscountable;
     int noofFood;
     int noofDrink;
+    fd foodDrink;
+    market m;
 
     // methods
     // default constructor
     public restaurant ()
     {}
 
+    // test (what you have, cannot hardcode everything)
+    public restaurant (String cashierName, String paymentType)
+    {
+        this.cashierName = cashierName;
+        this.paymentType = paymentType;
+    }
     public restaurant (float foodPrice)
     {
         this.foodPrice = foodPrice;
@@ -36,11 +58,11 @@ public class restaurant
         this.cashierName = cashierName;
     }
 
-    public restaurant (String foodName, String drinkName)
+    /*public restaurant (String foodName, String drinkName)
     {
         this.foodName = foodName;
         this.drinkName = drinkName;
-    }
+    }*/
 
     public restaurant (int dailyDiscount, boolean isDiscountable)
     {
@@ -66,13 +88,19 @@ public class restaurant
 
     public static void main(String[] args)
     {
-
         restaurant r1 = new restaurant();
         restaurant r2 = new restaurant(12.5f);
         restaurant r3 = new restaurant(12.5f, 3.0);
         restaurant r4 = new restaurant(12.5f, 3.0, "Maria");
-        restaurant r5 = new restaurant("Burger", "Cola");
+        restaurant r5 = new restaurant("Lisa", "Visa");
         restaurant r6 = new restaurant(15, true);
+        fd fd1 = new fd("burger","cola");
+        r1.foodDrink = fd1;
+
+        r6.m = new market("ABC market");
+        System.out.println(r6.m.marketName+" "+r6.dailyDiscount);
+
+        System.out.println(r1.foodDrink.foodName); //access
 
         Scanner sc = new Scanner(System.in);
 
@@ -103,19 +131,19 @@ public class restaurant
 
         if (r1.isDiscountable)
         {
-            System.out.println("Enter discount rate (%) for the day: ");
+            System.out.print("Enter discount rate (%) for the day: ");
             int discountRate = sc.nextInt();   // e.g. 15 for 15%
             sc.nextLine();
 
-            double finalCost = r1.rawtotalCost(r1.noofFood, r1.noofDrink)
-                    * (1 - discountRate / 100.0);
+            double finalCost = r1.rawtotalCost(r1.noofFood, r1.noofDrink) * (1 - discountRate / 100.0);
 
             System.out.println("Total payable is $" + finalCost);
         }
         else{        System.out.println("Total payable is $"+r1.rawtotalCost(r1.noofFood, r1.noofDrink));}
 
         r1.paymentType ="";
-        while (!r1.paymentType.equals("card")) {
+        while (!r1.paymentType.equals("card"))
+        {
             System.out.print("Enter payment type: ");
             r1.paymentType = sc.nextLine();
         }
