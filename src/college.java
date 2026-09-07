@@ -7,9 +7,10 @@ class faculty extends Person
     double Salary;
     department Department;
 
-    faculty (String name, int age,String Designation, double Salary, department Department)
+    faculty (String facultyName, String name, int age,String Designation, double Salary, department Department)
     {
         super(name,age);
+        this.facultyName = facultyName;
         this.Designation = Designation;
         this.Salary = Salary;
         this.Department = Department;
@@ -37,21 +38,20 @@ public class college {
         this.collegeName = collegeName;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         college SPMS = new college("School of Physical and Mathematical Sciences");
 
         SPMS.mathDept = new department("Mathematics", "ARC");
-        SPMS.drAlex = new faculty("Dr Alex", 50,"Professor", 15000.00, SPMS.mathDept);
+        SPMS.drAlex = new faculty("abc","Dr Alex", 50,"Professor", 15000.00, SPMS.mathDept);
 
         SPMS.physicsDept = new department("Physics", "South Spine");
-        SPMS.drWu = new faculty("Dr Wu", 45,"Assoc Professor", 12000.00, SPMS.physicsDept);
-        SPMS.jamesBond = new faculty("James Bond", 30,"Teaching Assistant", 2000.00, SPMS.physicsDept);
+        SPMS.drWu = new faculty("xyz","Dr Wu", 45,"Assoc Professor", 12000.00, SPMS.physicsDept);
+        SPMS.jamesBond = new faculty("def","James Bond", 30,"Teaching Assistant", 2000.00, SPMS.physicsDept);
         phyfacultyMembers.add(SPMS.drWu);
         phyfacultyMembers.add(SPMS.jamesBond);
 
-
-
-        System.out.println(SPMS.drAlex.facultyName + " teaches " + SPMS.mathDept.deptName + " at " + SPMS.collegeName);
+        System.out.println(SPMS.drAlex.name + " teaches " + SPMS.mathDept.deptName + " at " + SPMS.collegeName);
         System.out.println(SPMS.drWu.facultyName + " teaches " + SPMS.physicsDept.deptName + " at " + SPMS.collegeName);
         System.out.println(SPMS.jamesBond.facultyName + " helps in " + SPMS.physicsDept.deptName + " classes at " + SPMS.collegeName);
 
